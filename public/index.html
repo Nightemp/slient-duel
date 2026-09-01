@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>SILENT DUEL</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div id="topbar">
+    <div id="online-badge">🟢 Онлайн: <span id="online-count">0</span></div>
+    <div id="game-title">SILENT DUEL</div>
+    <div id="money-badge">💵 <span id="money-count">0</span>$</div>
+  </div>
+
+  <div id="menu-screen" class="screen">
+    <h1>SILENT DUEL</h1>
+    <p class="subtitle">Дуэль на закате. Пистолеты с глушителем. Один выстоит.</p>
+    <button id="btn-play">Найти дуэль</button>
+    <button id="btn-shop">Магазин</button>
+    <div id="stats-line"></div>
+  </div>
+
+  <div id="queue-screen" class="screen hidden">
+    <p>Ищем соперника...</p>
+    <button id="btn-cancel-queue">Отмена</button>
+  </div>
+
+  <div id="shop-screen" class="screen hidden">
+    <h2>Магазин</h2>
+    <div id="shop-list"></div>
+    <button id="btn-shop-back">Назад</button>
+  </div>
+
+  <div id="game-screen" class="screen hidden">
+    <canvas id="game-canvas"></canvas>
+    <div id="hud">
+      <div id="body-hp-panel"></div>
+      <div id="crosshair">+</div>
+    </div>
+  </div>
+
+  <div id="result-screen" class="screen hidden">
+    <h2 id="result-title"></h2>
+    <p id="result-sub"></p>
+    <button id="btn-result-continue">Продолжить</button>
+  </div>
+
+  <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
