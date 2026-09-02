@@ -1,3 +1,4 @@
+cat > /home/claude/silent-duel/server/index.js << 'EOF'
 // server/index.js
 require('dotenv').config();
 const path = require('path');
@@ -86,7 +87,7 @@ function finishRoom(room) {
     }
   }
 
-  if (room.botLoopTimer) clearInterval(room.botLoopTimer);
+  if (room.botLoopTimer) clearTimeout(room.botLoopTimer);
   matchmaking.deleteRoom(room.id);
 }
 
@@ -191,5 +192,7 @@ io.on('connection', (socket) => {
 const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => console.log('SILENT DUEL server запущен на порту ' + PORT));
 
-// Бот-бэкенд Telegram (сам бот-приложение, не путать с ботами-соперниками в дуэли)
+// Телеграм-бот-приложение (не путать с ботами-соперниками в дуэли)
 require('./bot');
+EOF
+echo done
